@@ -1,0 +1,26 @@
+public class Birthday {
+
+	
+	
+	public static void main(String args[]) {
+	LocalDate today_date = LocalDate.now();
+	Scanner s = new Scanner(System.in);
+	System.out.println("Enter your birthdate ");
+	String birth = s.next();
+
+	// DateTimeFormatter myFormat = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+	// LocalDate birth_date = LocalDate.parse(birth,myFormat); //converting string to date
+	LocalDate birth_date = LocalDate.parse(birth);
+	System.out.println("Your birthdate is" + birth_date);
+	System.out.println("Today date is" + today_date);
+	Period p = Period.between(today_date , birth_date); //difference
+
+	System.out.println("age is " +p);
+	System.out.println("age in years is " + p.getYears());
+	System.out.println("age in months is " + p.getMonths());
+	System.out.println("age in days is " + p.getDays());
+
+	}
+	
+
+	}
