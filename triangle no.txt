@@ -1,0 +1,34 @@
+public class TriangleNum {
+
+	public static void main(String[] args) {
+		
+			 int number = 6;
+		     for(int i=0;i<number;i++)
+			{
+				int space = 0;
+				int noosspace = number-i;
+				while(noosspace > space)
+				{
+					System.out.print(" ");
+					space = space+1;
+				}
+				int counter = 0; 
+				while(i>counter)
+				{
+				counter = counter +1;
+				System.out.print(counter);  	
+				}
+				for(int j=i;j>0;j--)
+				{
+					if(i>j)
+					{
+						System.out.print(j); 
+					}
+				}
+				System.out.println();  	
+			}	
+		  
+
+	}
+
+}
