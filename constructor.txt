@@ -1,0 +1,101 @@
+public class TaxableWorker {
+	
+		public String name;
+		public double hourpay;
+		public double federaltaxrate;
+		public double grosspay;
+		public double tax;
+
+
+		public TaxableWorker(String name, double hourpay2, double federaltaxrate2, double grosspay2) {
+		super();
+		this.name = name;
+		this.hourpay = hourpay2;
+		this.federaltaxrate = federaltaxrate2;
+		this.grosspay = grosspay2;
+		}
+		@Override
+		public String toString() {
+		return "TaxableWorker [name=" + name + ", hourpay=" + hourpay + ", federaltaxrate=" + federaltaxrate + "]";
+		}
+		public double grosspay() {
+		return 0;
+		}
+		public double tax() {
+		tax=(grosspay*federaltaxrate);
+		return tax;
+		}
+		}
+
+
+
+
+public class StateTaxableWorker extends TaxableWorker{
+		public double statetaxrate;
+		public String Statename;
+		public StateTaxableWorker(String name, double hourpay, double federaltaxrate, double grosspay, double statetaxrate,
+		String statename) {
+		super(name, hourpay, federaltaxrate, grosspay);
+		this.statetaxrate = statetaxrate;
+		this.Statename = statename;
+		}
+		@Override
+		public String toString() {
+		return "StateTaxableWorker [statetaxrate=" + statetaxrate + ", Statename=" + Statename + ", name=" + name
+		+ ", hourpay=" + hourpay + ", federaltaxrate=" + federaltaxrate + ", grosspay=" + grosspay + ", tax="
+		+ tax + "]";
+		}
+
+		@Override
+		public double grosspay() {
+		grosspay=hourpay*statetaxrate;
+		return grosspay;
+		}
+
+
+		}
+
+
+public class LocalTaxableWorker extends StateTaxableWorker{
+public String cityname;
+public double citytaxrate;
+
+public LocalTaxableWorker(String name, double hourpay, double federaltaxrate, double grosspay, double statetaxrate,
+String statename, String cityname, double citytaxrate) {
+super(name, hourpay, federaltaxrate, grosspay, statetaxrate, statename);
+this.cityname = cityname;
+this.citytaxrate = citytaxrate;
+}
+
+@Override
+public String toString() {
+return "LocalTaxableWorker [cityname=" + cityname + ", citytaxrate=" + citytaxrate + ", statetaxrate="
++ statetaxrate + ", Statename=" + Statename + ", name=" + name + ", hourpay=" + hourpay
++ ", federaltaxrate=" + federaltaxrate + ", grosspay=" + grosspay + ", tax=" + tax + "]";
+}
+
+@Override
+public double grosspay() {
+grosspay=grosspay*citytaxrate;
+return grosspay;
+}
+
+}
+		
+
+	
+
+public class Test {
+
+
+		public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		StateTaxableWorker s1=new StateTaxableWorker("praveen", 12.50, 0.25, 7.5, 0.05, "karur");
+		System.out.println(s1);
+		LocalTaxableWorker l1=new LocalTaxableWorker("ram", 12.50, 0.25, 7.5, 0.05, "karur", "tamilnadu", 0.025);
+		System.out.println(l1);
+		System.out.println("the grosspay for state is "+s1.grosspay());
+		System.out.println("the grosspay for local is "+l1.grosspay());
+		}
+
+		}
