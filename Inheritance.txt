@@ -1,0 +1,119 @@
+public class Employee {
+	
+	public String empName;
+	public int empNO;
+	public float empSal;
+	
+
+	public Employee(String empName, int empNO, float empSal) {
+		super();
+		this.empName = empName;
+		this.empNO = empNO;
+		this.empSal = empSal;
+	}
+	
+	public float calcTax()
+	{
+		return(0);
+		
+	}
+	
+}
+
+
+
+
+
+
+
+public class PermanentEmployee extends Employee {
+	
+	public int incentives;
+	public int bonus;
+	
+
+	public PermanentEmployee(String empName, int empNO, float empSal, int incentives, int bonus) {
+		super(empName, empNO, empSal);
+		this.incentives = incentives;
+		this.bonus = bonus;
+	}
+	public float calcTotalSal()
+	{
+		float totalSal = incentives+bonus+ empSal;
+		return totalSal;
+		
+	}
+	public float calcTax()
+	{
+		float  i=(float) (calcTotalSal()*0.05);
+		return(i);
+		
+	}
+
+	
+}
+
+
+
+
+
+
+
+public class TempEmp extends Employee {
+	
+
+	public int incentives;
+	public int contractPeriod;
+	
+	
+	
+public TempEmp(String empName, int empNO, float empSal, int incentives, int contractPeriod) {
+		super(empName, empNO, empSal);
+		this.incentives = incentives;
+		this.contractPeriod = contractPeriod;
+	}
+
+public float CalcTotalSal()
+{
+	float TotalSal= empSal+incentives ;
+	return TotalSal;
+	
+}
+public float calcTax()
+{
+	float  f=(float) (CalcTotalSal()*0.1);
+	return(f);
+	
+}
+
+
+}	
+
+	
+
+
+
+
+public class Test  {
+	
+	public static void main(String[] args) {
+		PermanentEmployee p= new PermanentEmployee("Tom", 123, 12000, 3000, 200);
+		
+		System.out.println("permanent Employee Name is" +p.empName);
+		System.out.println("Employee No is" +p.empNO);
+		System.out.println("Salary is" +p.empSal);
+		System.out.println("Incentive is" +p.incentives);
+		System.out.println("Bonus is" +p.bonus);
+		System.out.println("Total salary is" +p.calcTotalSal());
+		System.out.println("Tax is" +p.calcTax());
+		
+		TempEmp t= new TempEmp("Ram", 321, 10000, 324, 2);
+		
+		System.out.println("Temprory Employee Name is" +t.empName);
+		System.out.println("Incentive is" +t.incentives);
+		System.out.println("Total salary is" +t.CalcTotalSal());
+		System.out.println("Tax is" +t.calcTax());
+		
+	}
+
+}
