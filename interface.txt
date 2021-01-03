@@ -1,0 +1,139 @@
+public interface vehicle  {
+	
+	
+	public void printData ();
+	
+}
+
+
+
+
+
+public class Car implements vehicle{
+	
+	String mfgrname;
+	int price;
+	int year;
+	
+	
+	public Car(String mfgrname, int price, int year) {
+		super();
+		this.mfgrname = mfgrname;
+		this.price = price;
+		this.year = year;
+	}
+
+
+
+	@Override
+	public String toString() {
+		return "Car [mfgrname=" + mfgrname + ", price=" + price + ", year=" + year + "]";
+	}
+
+
+
+
+
+	@Override
+	public void printData() {
+		System.out.println(toString());
+		
+		
+	}
+}
+
+
+
+
+
+	
+
+
+	public class Minivan implements vehicle  {
+	
+	String mfgrname;
+	int price;
+	int year;
+	
+	public Minivan(String mfgrname, int price, int year) {
+		super();
+		this.mfgrname = mfgrname;
+		this.price = price;
+		this.year = year;
+	}
+
+
+
+
+	@Override
+	public String toString() {
+		return "Minivan [mfgrname=" + mfgrname + ", price=" + price + ", year=" + year + "]";
+	}
+
+
+
+
+	@Override
+	public void printData() {
+		toString();
+	}
+
+	
+}
+
+
+
+
+
+public class SUV implements vehicle{
+	
+	
+	String mfgrname;
+	int price;
+	int year;
+	
+	public SUV(String mfgrname, int price, int year) {
+		super();
+		this.mfgrname = mfgrname;
+		this.price = price;
+		this.year = year;
+	}
+
+
+	@Override
+	public String toString() {
+		return "SUV [mfgrname=" + mfgrname + ", price=" + price + ", year=" + year + "]";
+	}
+
+
+	@Override
+	public void printData() {
+		toString();
+		
+		
+	}
+
+
+
+
+}
+
+
+
+
+
+public class Tst {
+
+	public static void main(String[] args) {
+		Car c=new Car("Tata", 400000, 2010);
+		SUV s=new SUV("Suzuki", 350000, 2020);
+		Minivan m=new Minivan("Mahindra", 700000, 2009);
+		
+		System.out.println(c);
+		System.out.println(m);
+		System.out.println(s);
+		
+		
+	}
+
+}
